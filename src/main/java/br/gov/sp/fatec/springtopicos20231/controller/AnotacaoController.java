@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.gov.sp.fatec.springtopicos20231.dto.AnotacaoUsuarioDTO;
 import br.gov.sp.fatec.springtopicos20231.entity.Anotacao;
 import br.gov.sp.fatec.springtopicos20231.service.IAnotacaoService;
 
@@ -24,6 +25,11 @@ public class AnotacaoController {
     @GetMapping
     public List<Anotacao> buscarTodas() {
         return service.buscarTodas();
+    }
+
+    @GetMapping(value = "/quantidadePorUsuario")
+    public List<AnotacaoUsuarioDTO> quantidadePorUsuario() {
+        return service.quantidadeAnotacoesPorUsuario();
     }
 
     @PostMapping

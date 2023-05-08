@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.gov.sp.fatec.springtopicos20231.dto.AnotacaoUsuarioDTO;
 import br.gov.sp.fatec.springtopicos20231.entity.Anotacao;
 import br.gov.sp.fatec.springtopicos20231.entity.Usuario;
 import br.gov.sp.fatec.springtopicos20231.repository.AnotacaoRepository;
@@ -38,6 +39,11 @@ public class AnotacaoService implements IAnotacaoService {
 
     public List<Anotacao> buscarTodas() {
         return anotacaoRepo.findAll();
+    }
+
+    @Override
+    public List<AnotacaoUsuarioDTO> quantidadeAnotacoesPorUsuario() {
+        return anotacaoRepo.quantidadeAnotacoesPorUsuario();
     }
     
 }
